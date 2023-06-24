@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Count</title>
     <style>
+    body{
+        display: inline;
+        margin: 0px;
+    }
         #main {
             margin: 0px;
             position: relative;
@@ -16,14 +20,14 @@
 
         #outer {
             box-shadow: rgba(35, 136, 114, 0.212) 5px 5px 5px 5px, rgba(26, 37, 14, 0.32) 0px 2px 16px 0px;
-                   background: whITE;
+            background: whITE;
             display: flex;
             position: relative;
             top: 20%;
             margin: auto;
-            width: 25%;
-            height: 60vh;
-            border-radius: 2%;
+            width:50%;
+            height: 50vh;
+            border-radius:2%;
            
            
         }
@@ -40,40 +44,69 @@
             position: relative;
             width:50px;
             height: 50px;
-            top: 250px;
             height: 50px;
             right: 180px;
+           
             
         
         }
 
-        #circle button{
+        #btn1{
             background-color: #ac79a7;
-            width: 80px;
-            height: 40px;
-            border-radius: 10%;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
            border: none;
             color: white;
             font-size: larger;
             font-weight: bold;
-            margin: auto;
+            margin: 10px;
             position: relative;
-            right: 10px;
-            
-            
+            left: 120px;        
         }
-      #count{
-        display: flex;
-       
-        position: relative;
-        right: 110px;
-        width: 300px;
-      }
+
+        #btn2{
+            background-color: #ac79a7;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+           border: none;
+            color: white;
+            font-size: larger;
+            font-weight: bold;
+            margin: 10px;
+            position: relative;
+            left: 120px;   
+              
+        }
+        #btn3{
+            background-color: #ac79a7;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+           border: none;
+            color: white;
+            font-size: larger;
+            font-weight: bold;
+            margin: 10px;
+            position: relative;
+            left: 120px;         
+        }
+
+        #btn4{
+            width: 70px;
+            height: 30px;
+            position: relative;
+            right: 200px;
+            top: 10px;
+        }
+     
 
         textarea {
             padding: 10px;
-            background-color: #a8299c2f;
+            background-color: #d178c82f;
             border: none;
+            border-radius: 5%;
         }
     </style>
 </head>
@@ -82,31 +115,29 @@
     <div id="main">
         <div id="outer">
             <div id="inner">
-                <textarea name="" id="text" cols="36" rows="13"></textarea>
+                <textarea name="" id="text" cols="70" rows="15"></textarea>
             </div>
             <div id="circle">
                 <h3 id="count">
-                   To Count Character Click Here
+                   
                 </h3>
-                <button id="btn">Count</button> 
+                <button id="btn1"></button> 
+                <button id="btn2"></button> 
+                <button id="btn3"></button> 
+                <button id="btn4"></button>
             </div>
         </div>
     </div>
 
     <script>
         var textArea=document.getElementById("text");
-        var Count=document.getElementById("count");
-        btn.addEventListener("click",()=>{
-            btn.innerText=textArea.value.length;
-            btn.style.backgroundColor="black"
+        var Count=document.getElementById("btn1");
+        textArea.addEventListener("keypress",()=>{
+            btn1.innerText=textArea.value.length;
+            btn1.style.backgroundColor="black"
         })
 
-       textArea.addEventListener("click",()=>{
-            btn.style.backgroundColor="#ac79a7"
-            btn.style.color="white";
-            btn.innerText="Count"
-            
-        })
+       
         
     </script>
 </body>
