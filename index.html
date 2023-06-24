@@ -6,30 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Count</title>
     <style>
-    body{
-        display: inline;
-        margin: 0px;
-    }
+        body {
+            display: inline;
+            margin: 0px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
         #main {
             margin: 0px;
             position: relative;
             top: -px;
-            background: linear-gradient(180deg, rgb(3, 3, 48), #0f0231, #66085e);
+            background: linear-gradient(90deg, #ff9966, #ff5e62);
             height: 100vh;
         }
 
         #outer {
-            box-shadow: rgba(35, 136, 114, 0.212) 5px 5px 5px 5px, rgba(26, 37, 14, 0.32) 0px 2px 16px 0px;
+            box-shadow: 1px 1px 2rem rgba(0, 0, 0, .3);
             background: whITE;
             display: flex;
             position: relative;
             top: 20%;
             margin: auto;
-            width:50%;
+            width: 50%;
             height: 50vh;
-            border-radius:2%;
-           
-           
+            border-radius: 1rem;
+
+
         }
 
         #inner {
@@ -41,73 +43,106 @@
         }
 
         #circle {
-            position: relative;
-            width:50px;
-            height: 50px;
-            height: 50px;
-            right: 180px;
+            margin: 10px;
+          
+            width: 100px;
+            height: 50vh;
            
+            right: 70px;
+        }
+       
+
+        #btn1 {
+            background-color: #ff6c63;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            border: none;
+            color: white;
+            font-size: larger;
+            font-weight: bold;
+            margin: 10px;
+            position: relative;
             
-        
         }
 
-        #btn1{
-            background-color: #ac79a7;
-            width: 60px;
-            height: 60px;
+        #btn2 {
+            background-color: #ff6c63;
+            width: 50px;
+            height: 50px;
             border-radius: 100%;
-           border: none;
+            border: none;
             color: white;
             font-size: larger;
             font-weight: bold;
             margin: 10px;
             position: relative;
-            left: 120px;        
+            
+
         }
 
-        #btn2{
-            background-color: #ac79a7;
-            width: 60px;
-            height: 60px;
+        #btn3 {
+            background-color: #ff6c63;
+            width: 50px;
+            height: 50px;
             border-radius: 100%;
-           border: none;
+            border: none;
             color: white;
             font-size: larger;
             font-weight: bold;
             margin: 10px;
             position: relative;
-            left: 120px;   
-              
-        }
-        #btn3{
-            background-color: #ac79a7;
-            width: 60px;
-            height: 60px;
-            border-radius: 100%;
-           border: none;
-            color: white;
-            font-size: larger;
-            font-weight: bold;
-            margin: 10px;
-            position: relative;
-            left: 120px;         
-        }
+                }
 
         #btn4{
+            width: 100px;
+            height: 30px;
+            position: relative;
+            right: 230px;
+            bottom: 5.5rem;
+            background: linear-gradient(90deg, #ff9966, #ff5e62);
+            border: none;
+            border-radius: 0.5rem;
+            color:white;
+        }
+
+        #btn5 {
             width: 70px;
             height: 30px;
             position: relative;
-            right: 200px;
-            top: 10px;
-            color: #0f0231;
+            right: 390px;
+            bottom: 7.5rem;
+           border: none;
+           border-radius: 0.5rem;
+           color:white;
+
+            background: linear-gradient(90deg, #ff9966, #ff5e62);
         }
-     
+        #btn4:hover{
+            background: linear-gradient(291deg, #ffb666, #ff5e62);
+            color: #000000;
+        }
+        #btn5:hover{
+            background: linear-gradient(291deg, #ffb666, #ff5e62);
+            color: #000000;
+        }
+
+        #c{
+            
+            position: relative;
+            width: 150px;
+            height: 20px;
+            bottom:80px;
+            right: 230px;
+            color: #ff5e62;
+            font-weight: bolder;
+        }
 
         textarea {
             padding: 10px;
-            background-color: #d178c82f;
+            background-color: #dc42399e;
             border: none;
-            border-radius: 5%;
+            border-radius: 1rem;
         }
     </style>
 </head>
@@ -116,30 +151,81 @@
     <div id="main">
         <div id="outer">
             <div id="inner">
-                <textarea name="" id="text" cols="70" rows="15"></textarea>
+                <textarea name="" id="text" cols="50" rows="10"></textarea>
             </div>
             <div id="circle">
-                <h3 id="count">
-                   
-                </h3>
-                <button id="btn1"></button> 
-                <button id="btn2"></button> 
-                <button id="btn3"></button> 
-                <button id="btn4" > Button</button>
+               
+             <div> Char</div>   <button id="btn1"></button>
+             <div>Vowel</div>   <button id="btn2"></button>
+              <div>Constant</div> <button id="btn3"></button>
+                <div id="WordCount">
+                    <p id="c" ></p>
+                    <button id="btn4">Count Word</button>
+                </div>
+
+                <button id="btn5">Reset</button>
             </div>
         </div>
     </div>
 
     <script>
-        var textArea=document.getElementById("text");
-        var Count=document.getElementById("btn1");
-        textArea.addEventListener("keyup",()=>{
-            btn1.innerText=textArea.value.length;
-            btn1.style.backgroundColor="black"
+        var textArea = document.getElementById("text");
+        var Count = document.getElementById("btn1");
+
+        btn4.addEventListener("click", () => {
+            var word = textArea.value.split(" ");
+            var totalWord = 0;
+            for (i = 0; i < word.length; i++) {
+                if (word[i] != 0) {
+                    totalWord = totalWord + 1;
+                }
+            }
+            c.innerText="Total Word=" + totalWord;
+
         })
 
-       
-        
+
+
+        textArea.addEventListener("keyup", () => {
+            var vowel = 0;
+            var space = 0;
+            var constant = 0;
+            btn1.innerText = textArea.value.length;
+            btn2.innerText = vowel;
+            btn3.innerText = constant;
+
+            for (i = 0; i < textArea.value.length; i++) {
+                if (textArea.value[i] == 'a' || textArea.value[i] == 'e' || textArea.value[i] == 'i' ||
+                    textArea.value[i] == 'o' || textArea.value[i] == 'u' || textArea.value[i] == 'A' || textArea.value[i] == 'E' ||
+                    textArea.value[i] == 'I' || textArea.value[i] == 'O' || textArea.value[i] == 'U') {
+                    vowel = vowel + 1;
+                    btn2.innerText = vowel;
+                }
+
+                else {
+                    console.log(vowel);
+                    constant = textArea.value.length - vowel - (textArea.value.split(" ").length - 1)
+
+                }
+
+                btn2.innerText = vowel;
+                btn3.innerText = constant;
+            }
+
+            btn5.addEventListener("click", () => {
+                textArea.value = "";
+                btn1.innerText = 0;
+                btn2.innerText = 0;
+                btn3.innerText = 0;
+               
+                c.innerText="";
+            })
+
+
+        })
+
+
+
     </script>
 </body>
 
